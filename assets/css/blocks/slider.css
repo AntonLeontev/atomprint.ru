@@ -1,0 +1,107 @@
+.clients {
+    overflow: hidden;
+    background: url('/assets/img/fon_klient.jpg') scroll center center no-repeat;
+    padding-bottom: 25px;
+}
+.clients_cont {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.clients_cont h3 {
+    color: #fff;
+    text-align: center;
+    padding-left: 0; 
+}
+.clearout {
+height:20px;
+clear:both;
+}
+
+#flexiselDemo1, #flexiselDemo2, #flexiselDemo3 {
+display:none;
+}
+
+.nbs-flexisel-container {
+    position:relative;
+    max-width:100%;
+    margin: 20px auto auto;
+}
+.nbs-flexisel-ul {
+    position:relative;
+    width:99999px;
+    margin:0px;
+    padding:0px;
+    list-style-type:none;   
+    text-align:center;  
+    overflow: auto;
+}
+
+.nbs-flexisel-inner {
+    position: relative;
+    overflow: hidden;
+    float:left;
+    width:100%;
+      
+}
+
+.nbs-flexisel-item {
+    float:left;
+    margin:0px;
+    padding:0px;
+    cursor:auto;
+    position:relative;
+    line-height:160px;
+    height: 160px;
+	
+}
+.nbs-flexisel-item img {
+    max-width: 95%;
+    cursor: inherit;
+    position: relative;
+    border-radius: 3px;
+    line-height: normal;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+/*** Navigation ***/
+
+.nbs-flexisel-nav-left,
+.nbs-flexisel-nav-right {
+    padding:5px 10px;
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;      
+    position: absolute;
+    cursor: pointer;
+    z-index: 4;
+    top: 50%;
+    transform: translateY(-50%);   
+    background: rgba(a,a,a,0.99);
+    color: #fff;     
+}
+
+.nbs-flexisel-nav-left {
+    left: -50px;
+}
+
+.nbs-flexisel-nav-left:before {
+    content: "<"
+}
+
+.nbs-flexisel-nav-left.disabled {
+    opacity: 0.4;
+}
+
+.nbs-flexisel-nav-right {
+    right: -50px;    
+}
+
+.nbs-flexisel-nav-right:before {
+    content: ">"
+}
+
+.nbs-flexisel-nav-right.disabled {
+    opacity: 0.4;
+}

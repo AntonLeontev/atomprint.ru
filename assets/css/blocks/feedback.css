@@ -1,0 +1,19 @@
+.feedback {
+	overflow: hidden;
+	background: url(/assets/img/54.jpg) center 25% fixed, rgba(236, 236, 236, 0.5);
+	background-blend-mode: overlay;
+	padding-bottom: 25px;
+}
+
+.feedback_content {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.feedback_content h3 {
+	text-align: center;
+	padding-left: 0;
+	/*background: rgba(#ececec, 0.5)*/
+}

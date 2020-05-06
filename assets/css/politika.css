@@ -1,0 +1,12 @@
+.article {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.section_title {
+	width: 100%;
+	margin: 10px auto 10px;
+	text-align: center;
+}
+.politics_par {
+	margin: 0px auto 7px;
+}

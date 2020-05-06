@@ -1,0 +1,54 @@
+.faq_wrap {
+  background: url('/assets/img/fon_klienti.jpg') scroll center center;
+}
+.faq_conteiner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 25px;
+  color: #fff;
+}
+.faq_conteiner h3 {
+  text-align: center;
+}
+.faq_question {
+  /*border: solid 1px #fff;*/
+  margin: 15px 15px 0px 15px;
+
+}
+.faq_question_title {
+  cursor: pointer;
+  width: 100%;
+  transition: .3s;
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1.2em;
+  text-align: left;
+}
+.faq_question_title:hover {
+  color: #FF9E21;
+}
+.faq_question_answer {
+  display: none;
+  color: #FF9E21;
+  margin-left: 5px;
+  padding: 10px 10px 10px 100px;
+  border-left: 5px #FF9E21 solid;
+  transition: 1s;
+}
+.faq_question_answer.active {
+  display: block;
+}
+.contact {
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .faq_question_answer {
+    padding: 10px 10px 10px 10px;
+  }
+  .faq_question_title {
+    text-align: center;
+  }
+}

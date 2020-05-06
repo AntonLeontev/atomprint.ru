@@ -1,0 +1,125 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, input,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    width: 100%;
+    font-family: 'arial', sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+h3 {
+    width: 100%;
+    padding: 35px 0 10px 20px;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: default;
+}
+p {
+    cursor: default;
+}
+
+.button:focus, .button:active, .btn:active, .btn:focus, button:active, button:focus {
+    outline: none;
+}
+
+
+.input_text, .phone_inp {
+    width: 70%;
+    margin: 5px auto;
+    padding: 12px 5px;
+    display: block;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.input_submit {
+    margin: 25px auto;
+    display: block;
+    width: 70%;
+    background: #FF9E21;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    padding: 12px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+.input_submit:hover, .input_submit:focus, .input_submit:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.consent {
+    width: 70%;
+    margin: 0px auto;
+    display: block;
+    cursor: pointer;
+}
+@media (max-width: 430px) {
+    .input_text, .phone_inp {
+        width: 85%;
+        font-size: 14px;
+        padding: 10px 0;
+    }
+    .input_submit {
+        width: 85%;
+        font-size: 18px;
+        padding: 10px;
+        margin: 20px auto;
+    }
+    .consent {
+    width: 85%;
+    margin: 0px auto;
+    display: block;
+}
+}

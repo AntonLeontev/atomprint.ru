@@ -1,0 +1,9 @@
+ErrorDocument 404 /err404.php
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} /index.php
+RewriteCond %{QUERY_STRING} ^\z
+RewriteRule ^(.*)$ http://xn--80aqlfchhmg.xn--p1ai/? [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$
+RewriteRule ^(.*)$ http://%1/$1 [L,R=301]
