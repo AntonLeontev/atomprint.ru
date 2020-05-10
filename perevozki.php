@@ -96,8 +96,6 @@
           <td class="table_col">25 р/км</td>
         </tr>
       </table>
-    
-
 
       <table class="table size">
         <h3 class="h3">Вместимость кузова</h3>
@@ -114,6 +112,8 @@
           <td class="table_col">до 8 палет</td>
         </tr>        
       </table>
+
+      <div class="ati_big"><iframe scrolling="no" width="100%" height="220" frameborder="0" src="https://ati.su/widgets/ati-block/?id=841611"></iframe></div>
 
     </div>
   </main>

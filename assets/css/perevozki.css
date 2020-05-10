@@ -123,19 +123,23 @@
 
 
 .input_submit {
-    margin: 25px auto;
-    display: block;
-    width: 70%;
-    background: #FF9E21;
-    color: #fff;
-    font-size: 22px;
-    text-align: center;
-    padding: 12px;
-    outline: none;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    }
+  margin: 25px auto;
+  display: block;
+  width: 70%;
+  background: #FF9E21;
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  padding: 12px;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  }
+
+.ati_big {
+  display: none;
+}
 
 
 .footer {
@@ -254,6 +258,7 @@
 }
 @media (max-width: 600px) {
   .ati_small {display: none;}
+  .ati_big {display: block;}
   .first_screen {
     background-position: 50% 50%;
     -webkit-background-size: contain;
