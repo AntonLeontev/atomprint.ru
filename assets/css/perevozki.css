@@ -19,6 +19,7 @@
   font-family: Helvetica-NeueCyr, sans-serif;
   font-size: 1.5rem;
   font-style: italic;
+  padding-right: 10px;
 }
 .logo_red {
   color: #FF9E21;
@@ -28,6 +29,13 @@
   position: relative;
   bottom: 25px;
 }
+.adress {
+  padding: 0 3px 0 3px;
+  text-align: center;
+}
+.contacts {
+  min-width: 205px;
+}
 .contact {
   padding: 3px;
 }
@@ -35,6 +43,14 @@
   font-size: 1.3rem;
   font-weight: 600;
   color: #FF9E21;
+}
+.call_btn {
+  display: none;
+  color: #FF9E21;
+  text-decoration: none;
+  padding: 8px;
+  border: 3px solid #FF9E21;
+  border-radius: 5px;
 }
 
 .main {
@@ -46,7 +62,8 @@
   background-position: 95% 35%;
   background-repeat: no-repeat;
   background-size: 55%;
-  min-height: 95vh;
+  min-height: auto;
+  padding-bottom: 30px;
 }
 .h1 {
   font-size: 2.2rem;
@@ -62,16 +79,16 @@
   padding: 0;
 }
 .table {
-  min-width: 400px;
+  min-width: 300px;
   width: 45%;
-  max-width: 500px;
+  max-width: 700px;
   padding: 30px 15px;
   margin-bottom: 30px;
   background-color: rgba(255, 255, 255, 0.65);
 }
 .table_col {
   height: 35px;
-  width: 33%;
+  width: 2%;
   border: solid 1px #000;
   text-align: center;
   vertical-align: middle;
@@ -209,7 +226,15 @@
   font-size: 12px;
   padding-bottom: 50px;
 }
+
+
 @media (max-width: 800px) {
+  .first_screen {
+    background-position: 100% 50%;
+  }
+  .adress {
+    display: none;
+  }
   .footer_content {
     grid-template: 1fr 1fr 1fr auto/minmax(205px, auto) minmax(300px, auto);
     grid-gap: 8px;
@@ -225,6 +250,33 @@
   }
   #callback_footer {
     grid-area: 1/2/4/3;
+  }
+}
+@media (max-width: 600px) {
+  .ati_small {display: none;}
+  .first_screen {
+    background-position: 50% 50%;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+  .h1 {
+    text-align: center;
+    padding-left: 0;
+  }
+  .h2 {
+    text-align: center;
+    padding-left: 0;
+  }
+  .h3 {
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+  }
+  .table {
+    width: 100%;
+    max-width: 100%;
+  }
+  .table_col {
+    width: auto;
   }
 }
 @media (max-width: 550px) {
@@ -247,6 +299,21 @@
   }
 }
 @media (max-width: 430px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  .contacts {
+    display: none;
+  }
+  .call_btn {
+    display: block;
+  }
+  .h1 {
+    font-size: 1.8rem;
+  }
+  .h2 {
+    font-size: 1.5rem;
+  }
   .footer_text {
     font-size: 15px;
   }

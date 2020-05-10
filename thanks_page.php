@@ -33,18 +33,21 @@
 				  $phoneFieldset = "Телефон: ";
 				  }
 				}
+
 				if (isset($_POST['form-name'])) {
 				  if (!empty($_POST['form-name'])){
 				  $formName = strip_tags($_POST['form-name']);
 				  $formNameFieldset = "Форма: ";
 				  }
 				}
+
 				if (isset($_POST['page-title'])) {
 				  if (!empty($_POST['page-title'])){
 				  $pageTitle = strip_tags($_POST['page-title']);
 				  $pageTitleFieldset = "Страница: ";
 				  }
 				}
+
 				$token = "961313657:AAGAMoIvveEHv3GiEC_Sed4uXByUPvLZXiA";
 				$chat_id = "-322308753";
 				$arr = array(

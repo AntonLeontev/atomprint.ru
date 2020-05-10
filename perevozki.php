@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="/assets/css/reset.css">
   <link rel="stylesheet" href="/assets/css/perevozki.css">
   <link rel="stylesheet" href="/assets/css/blocks/pop-up_map.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="/assets/js/scripts_body.js"></script>
   <script type="text/javascript" src="/assets/js/jquery.flexisel.js"></script>
@@ -50,35 +52,52 @@
         <iframe scrolling="no" width="200" height="70" frameborder="0" src="https://ati.su/widgets/badge/?id=841611&type=gray">
         </iframe>
       </div>
-      <adress class="adress">г. Екатеринбург пер. Автоматики 1 оф.007</adress>
+      <adress class="adress">г.&nbsp;Екатеринбург пер. Автоматики&nbsp;1 оф.&nbsp;007</adress>
       <div class="contacts">
-        <div class="tel contact">+7 343 300-92-33</div>
+        <div class="tel contact"><a class="zphone" href="tel:+73433009233">+7 343 300-92-33</a></div>
         <div class="mail contact">atomprint@yandex.ru</div>
       </div>
+      <a class="call_btn" href="tel:+73433009233"><i class="material-icons">phone</i></a>
     </div>
   </header>
   <main class="main">
     <div class="first_screen">
       <h1 class="h1">Перевозки грузов по Екатеринбургу и России</h1>
-      <h2 class="h2">Заказать газель</h2>
+      <h2 class="h2">Заказать газель можно у нас</h2>
+      <h3 class="h3">Стоимость при поездке до 30&nbsp;км</h3>
       <table class="table price">
-        <h3 class="h3">Стоимость</h3>
         <tr class="table_row">
-          <td class="table_col"></td>
-          <td class="table_title table_col">За км</td>
+          <td class="table_title table_col">Масса груза</td>
           <td class="table_title table_col">Почасово (минимум&nbsp;3ч)</td>
         </tr>
         <tr class="table_row">
           <td class="table_title table_col">до 1,5 т</td>
-          <td class="table_col">20 р/км</td>
           <td class="table_col">450 р/ч</td>
         </tr>
         <tr class="table_row">
           <td class="table_title table_col">до 3 т</td>
-          <td class="table_col">25 р/км</td>
           <td class="table_col">600 р/ч</td>
         </tr>
       </table>
+
+      <h3 class="h3">Стоимость при поездке более 30&nbsp;км</h3>
+
+      <table class="table price">
+        <tr class="table_row">
+          <td class="table_title table_col">Масса груза</td>
+          <td class="table_title table_col">За километр</td>
+        </tr>
+        <tr class="table_row">
+          <td class="table_title table_col">до 1,5 т</td>
+          <td class="table_col">20 р/км</td>
+        </tr>
+        <tr class="table_row">
+          <td class="table_title table_col">до 3 т</td>
+          <td class="table_col">25 р/км</td>
+        </tr>
+      </table>
+    
+
 
       <table class="table size">
         <h3 class="h3">Вместимость кузова</h3>
@@ -96,7 +115,6 @@
         </tr>        
       </table>
 
-      
     </div>
   </main>
 
