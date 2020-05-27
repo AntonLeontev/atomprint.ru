@@ -1,8 +1,8 @@
-<div class="footer">
+<footer class="footer">
 	<div class="footer_content">
 		<form method="post" action="thanks_page.php" id="callback_footer" onsubmit="ym('53149000','reachGoal', 'footerform');">
 					<p class="Ost">Остались вопросы?</p>
-					<p class="Mast">Оставьте контакты и перезвоним за 15 минут</p>
+					<p class="Mast">Оставьте контакты и перезвоним за 15&nbsp;минут</p>
 					<input class="input_text" type="text" name="name" placeholder=" Имя" maxlength="30">
 					<input class="phone_inp" type="tel" name="phone" placeholder=" Телефон*" required>
 					<input type="hidden" name="form-name" value="Форма футера"/>
@@ -18,15 +18,16 @@
 		<div class="footer_info1">
 					<div class="zphone"><a href="tel:+73433009233" class="zphone">+7 343 3009233</a></div>
 					<p><a href="mailto:atomprint@yandex.ru" class="footer_btn">atomprint@yandex.ru</a></p>
-					<p class="footer_btn" onclick="yaCounter54408460.reachGoal('view_map'); return true;" id="footer_adress">Екатеринбург, пер. Автоматики, д. 1, оф. 007</p>
+					<p class="footer_btn" onclick="yaCounter54408460.reachGoal('view_map'); return true;" id="footer_adress">Екатеринбург, пер. Автоматики, д.&nbsp;1, оф.&nbsp;007</p>
 		</div>
-		<div class="links">
+		<nav class="links">
 					<p><a href="index.php">Главная</a></p>
 					<p><a href="politika.php">Политика конфиденциальности</a></p>
 					<p><a href="remont.php">Ремонт принтеров</a></p>
 					<p><a href="zapravka.php">Заправка картриджей</a></p>
 					<p><a href="kupit.php">Купить новые картриджи</a></p>
-		</div>
+					<p><a href="perevozki.php">Перевозки грузов</a></p>
+		</nav>
 		<div class="copyright">
 					<div style="float: left;">
 						© ООО "Атомпринт" 2010 - <?php  echo (date('Y')) ?>
@@ -38,4 +39,4 @@
 		</div>
 	</div>
 
-</div>
+</footer>
