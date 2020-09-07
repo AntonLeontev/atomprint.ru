@@ -16,7 +16,7 @@ include_once 'assets/php/cookies.php';
 <body>
 	<?php
 		include_once 'assets/php/header.php';
-		include_once 'assets/php/alert_top.php';
+		include_once 'assets/php/printers_menu.php';
 	?>
 	<div class="main_bgrd">
 		<div class="main_conteiner">
@@ -45,3 +45,4 @@ include_once 'assets/php/cookies.php';
 	?>
 
 </body>
+<script type="text/javascript" src="/assets/js/scripts_body.js"></script>

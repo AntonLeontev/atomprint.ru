@@ -49,4 +49,5 @@ include_once 'assets/php/cookies.php';
   			}
     ?>
 </body>
+<script type="text/javascript" src="/assets/js/scripts_body.js"></script>
 </html>
