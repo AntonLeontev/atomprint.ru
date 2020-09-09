@@ -26,7 +26,7 @@ include_once '../assets/php/cookies.php';
 <table id="price-list">
   <thead>
     <tr>
-      <th class="first_col" scope="col" rowspan="2">Номер картриджа</th>
+      <th class="models" class="first_col" scope="col" rowspan="2">Номер картриджа</th>
       <th scope="col" rowspan="2">Модель принтера</th>
       <th scope="col" colspan="3">Заправка с выездом</th>
       <th class="fixed_col" scope="col" rowspan="2">Заправка <br> у нас в офисе</th>
