@@ -3,7 +3,7 @@
   font-size: 2em;
   margin-top: 20px;
 }
-.price-list {
+#price-list {
   max-width: 1000px;
   width: 95%;
   margin: 0 auto;

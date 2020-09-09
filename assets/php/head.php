@@ -1,8 +1,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="yandex-verification" content="39812c29edb7507b" />
+<meta property="og:image" content="/assets/img/ogimage.jpg">
 <link rel="icon" href="https://xn--80aqlfchhmg.xn--p1ai/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="/assets/css/reset.css">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v=2">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/js/jquery.flexisel.js"></script>
 <script type="text/javascript" src="/assets/js/jquery.cookie.js"></script>
