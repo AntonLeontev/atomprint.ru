@@ -60,13 +60,13 @@
 			$token = "961313657:AAGAMoIvveEHv3GiEC_Sed4uXByUPvLZXiA";
 			$chat_id = "-322308753";
 			$arr = array(
-			  $nameFieldset => $name,
-			  $phoneFieldset => $phone,
+			  $nameFieldset      => $name,
+			  $phoneFieldset     => $phone,
 				$pageTitleFieldset => $pageTitle,
-				$formNameFieldset => $formName,
+				$formNameFieldset  => $formName,
 			);
 			foreach($arr as $key => $value) {
-			  $txt .= "<b>".$key."</b> ".$value."%0A";
+			  $txt .= "<b>".$key."</b> ".$value."\n";
 			};
 
 			//для отправки в битрикс
@@ -76,11 +76,11 @@
 			// формируем параметры для создания лида в переменной $queryData
 			$queryData = http_build_query(array(
 			  'fields' => array(
-			    'TITLE' => "Заявка с сайта",
-			    'NAME' => $name,
-			    'COMMENTS' => "Заявка!\n\r${txt}",
-			  	'PHONE' => Array(
-				    "n0" => Array(
+			    'TITLE'    => "Заявка с сайта",
+			    'NAME'     => $name,
+			    'COMMENTS' => "Заявка!\n".$txt,
+			  	'PHONE'    => Array(
+				    "n0"  => Array(
 				        "VALUE" => $phone,
 				        "VALUE_TYPE" => "WORK",
 				    ),
@@ -95,9 +95,9 @@
 
 			if ($_POST['page-title'] != 'Нет данных') { //проверка на спам
 
-				// отправляем письма
+			// отправляем письма
 				// $sendMailAner = mail('aner-anton@ya.ru', 'НОВАЯ ЗАЯВКА!', "\r\n\r\nИмя: $name; \r\nТелефон: $phone \r\n\r\nЗвони скорее!!!\r\n\r\nСтраница: $pageTitle\r\nФорма: $formName");
-				$sendMailAtom = mail('atomprint@yandex.ru', 'НОВАЯ, ЗАЯВКА!', "\r\n\r\nИмя: $name; \r\nТелефон: $phone \r\n\r\nЗвони скорее!!!\r\n\r\nСтраница: $pageTitle\r\nФорма: $formName");
+				// $sendMailAtom = mail('atomprint@yandex.ru', 'НОВАЯ, ЗАЯВКА!', "\r\n\r\nИмя: $name; \r\nТелефон: $phone \r\n\r\nЗвони скорее!!!\r\n\r\nСтраница: $pageTitle\r\nФорма: $formName");
 
 				// отправляем в телеграм
 				$sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
@@ -115,7 +115,9 @@
 				$result = curl_exec($curl);
 				curl_close($curl);
 				$result = json_decode($result, 1);
-				if (array_key_exists('error', $result)) echo "Ошибка при сохранении лида: ".$result['error_description']."<br/>";
+				if (array_key_exists('error', $result)) {
+					mail('aner-anton@ya.ru', 'Ошибка при сохранении лида в битрикс', "Ошибка при сохранении лида: ".$result['error_description']);
+				} 
 
 				if ($sendToTelegram || $sendMailAtom) {
 				  $message = "Принято! Мы скоро позвоним по номеру <br>$phone!";
