@@ -30,12 +30,13 @@
         <th>2pcs</th>
         <th>5pcs</th>
         <th>office</th>
+        <th>Ch</th>
       </tr>
     </thead>
   <?php 
     require_once 'assets/php/functions/connect_db.php'; 
     $query = "SELECT * FROM cartriges
-            ORDER BY cartrige_id";
+            ORDER BY cartrige_id DESC";
     $obj = $pdo->query($query);
     while ($arr = $obj->fetch(PDO::FETCH_ASSOC)) {
       ?>
@@ -43,11 +44,14 @@
       <td><?=$arr['cartrige_id']?></td>
       <td><?=$arr['color_id'].$arr['series'].
       '<span>'.$arr['model'].'</span>'?></td>
-      <td></td>
+      <td>
+        
+      </td>
       <td><?=$arr['price_1_pcs']?></td>
       <td><?=$arr['price_2_pcs']?></td>
       <td><?=$arr['price_5_pcs']?></td>
       <td><?=$arr['price_in_office']?></td>
+      <td><a href="change_data.php?id=<?=$arr['cartrige_id']?>">Ch</a></td>
     </tr>
   <?php  }
 
