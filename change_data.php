@@ -3,7 +3,7 @@
   require_once 'assets/php/functions/p.php';
 
   // Получаем список цветов картриджей
-  $query = "SELECT color_name FROM colors";
+  $query = "SELECT color_name, image_path FROM colors";
   $colors = $pdo->query($query);
   $colors = $colors->fetchAll(PDO::FETCH_ASSOC);
 
@@ -44,7 +44,7 @@
 <body>
   <form class="add_data_form" action="assets/php/functions/update_data.php" method="POST">
     <table class="data_table">
-      <caption>Обновление значения картриджа с id=<?=$id?></caption>
+      <caption>Обновление значения картриджа с ID <?=$id?></caption>
       <thead>
         <tr>
           <th colspan="8">Картридж</th>

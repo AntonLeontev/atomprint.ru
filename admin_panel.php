@@ -67,7 +67,7 @@
       <td><?=$arr['price_in_office']?></td>
       <td><?=$colored?></td>
       <td><a href="change_data.php?id=<?=$arr['cartrige_id']?>">Ch</a></td>
-      <td><a href="delete_data.php?id=<?=$arr['cartrige_id']?>">Del</a></td>
+      <td><a href="/assets/php/functions/delete_data.php?id=<?=$arr['cartrige_id']?>">Del</a></td>
     </tr>
   <?php  }
   ?>

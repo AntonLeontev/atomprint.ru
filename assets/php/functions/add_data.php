@@ -40,7 +40,13 @@
         delete_empty_values($v);
       }
 
-    } else header("Location: /add_data_to_db.php?err=1");
+    } else {
+      header("Location: /add_data_to_db.php?err=1");
+      exit();
+    }
+  } else {
+    header("Location: /add_data_to_db.php?err=2");
+    exit();
   }
 
   // Готовим к вставке цвет принтера
