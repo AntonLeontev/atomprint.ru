@@ -24,46 +24,9 @@
   $cartrige_data = $cartrige_data->fetch(PDO::FETCH_ASSOC);
 
   // Получаем производителя серию, модели и цветность принтеров для искомого картриджа 
-
-// SELECT printer_series, printer_model, colored, vendor_name 
-//     FROM printer_cartrige_match AS mtc, printers AS P, printer_vendors AS V 
-//     WHERE cartrige_id=? AND mtc.printer_id=P.printer_id AND V.vendor_id=P.vendor_id
-//     ORDER BY printer_series;
-
-  $query = "
-    SELECT printer_series, colored, vendor_name
-    FROM printer_cartrige_match AS mtc, printers AS P, printer_vendors AS V 
-    WHERE cartrige_id=? AND mtc.printer_id=P.printer_id AND V.vendor_id=P.vendor_id
-    ORDER BY printer_series;
-  ";
-  $stmt = $pdo->prepare($query);
-  $stmt->execute([$id]);
-  $printer_series = []; 
-  while ($printer_data = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $printer_series[] = $printer_data['printer_series'];
-    $vendor  = $printer_data['vendor_name']; 
-    $colored = $printer_data['colored'];
-  }
-  $printer_series_and_models = [];
-  foreach (array_flip($printer_series) as $key => $value) {
-    $printer_series_and_models[$key] = [];
-  }
-
-  $query = "
-    SELECT printer_model
-    FROM printer_cartrige_match AS mtc, printers AS P
-    WHERE cartrige_id=? AND mtc.printer_id=P.printer_id AND P.printer_series=?;
-  ";
-  foreach (array_unique($printer_series) as $ser) {
-    $stmp = $pdo->prepare($query);
-    $stmp->execute([$id, $ser]);
-    while ($printer_models = $stmp->fetch(PDO::FETCH_ASSOC)) {
-      $printer_series_and_models["$ser"][] = $printer_models['printer_model'];
-    }
-  }
-  foreach ($printer_series_and_models as $k => $v) {
-    $printer_series_and_models[$k] = join(" / ", $v);
-  }
+  $printer_series_and_models = get_printers_series_and_models($id, $pdo);
+  $vendor  = get_printer_vendor($id, $pdo); 
+  $colored = get_printer_colored($id, $pdo);
 
   $printer_models = join(" | ", $printer_series_and_models);
   $printer_series = join(" | ", array_keys($printer_series_and_models));
@@ -79,7 +42,7 @@
   ?>
 </head>
 <body>
-  <form class="add_data_form" action="assets/php/functions/add_data.php" method="POST">
+  <form class="add_data_form" action="assets/php/functions/update_data.php" method="POST">
     <table class="data_table">
       <caption>Обновление значения картриджа с id=<?=$id?></caption>
       <thead>
@@ -180,15 +143,10 @@
         <tr></tr>
       </tbody>
     </table>
-    
+
+    <input type="text" name="cartrige_id" hidden value="<?=$id?>">
     <input type="submit" value="Сохранить">
   </form>
 </body>
 </html>
-
-
-
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-
  

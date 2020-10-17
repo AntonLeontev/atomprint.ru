@@ -5,10 +5,10 @@
     <li class="printers_menu_item item_canon"><a href="/prices/price_canon.php">Canon</a></li>
     <li class="printers_menu_item item_samsung"><a href="/prices/price_samsung.php">Samsung</a></li>
     <li class="printers_menu_item item_xerox"><a href="/prices/price_xerox.php">Xerox</a></li>
-    <li class="printers_menu_item item_kiocera"><a href="/prices/price_kiocera.php">Kiocera</a></li>
+    <li class="printers_menu_item item_kiocera"><a href="/prices/price_kiocera.php">Kyocera</a></li>
     <li class="printers_menu_item item_brother"><a href="/prices/price_brother.php">Brother</a></li>
     <li class="printers_menu_item item_panasonic"><a href="/prices/price_panasonic.php">Panasonic</a></li>
     <li class="printers_menu_item item_oki"><a href="/prices/price_oki.php">OKI</a></li>
-    <li class="printers_menu_item item_konika"><a href="/prices/price_konika.php">Konika</a></li>
+    <li class="printers_menu_item item_konika"><a href="/prices/price_konika.php">Konica</a></li>
   </ul>
 </nav>

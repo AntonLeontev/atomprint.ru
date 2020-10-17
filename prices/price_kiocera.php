@@ -5,9 +5,9 @@ include_once '../assets/php/cookies.php';
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Заправка картриджей Kiocera в Екатеринбурге | Атомпринт</title>
-  <meta name="description" content="Профессиональная заправка картриджей Kiocera в Екатеринбурге. Цены на заправку картриджей Kiocera. Заправка картриджей Kiocera с выездом.">
-  <meta name="keywords" content="атомпринт,заправка картриджей,Kiocera">
+  <title>Заправка картриджей Kyocera в Екатеринбурге | Атомпринт</title>
+  <meta name="description" content="Профессиональная заправка картриджей Kyocera в Екатеринбурге. Цены на заправку картриджей Kyocera. Заправка картриджей Kiocera с выездом.">
+  <meta name="keywords" content="атомпринт,заправка картриджей,Kyocera">
   <?php
     include_once '../assets/php/head.php'
    ?>
@@ -18,7 +18,7 @@ include_once '../assets/php/cookies.php';
     include_once '../assets/php/header.php';
     include_once '../assets/php/printers_menu.php';
   ?>
-  <h1 class="h1_price">Стоимость заправки картриджей Kiocera</h1>
+  <h1 class="h1_price">Стоимость заправки картриджей Kyocera</h1>
   <div id="price">                       
             
 
