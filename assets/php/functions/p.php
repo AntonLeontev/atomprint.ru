@@ -106,6 +106,7 @@ function p($obj)
     return $printer_series_and_models;
   }
 
+  // Получение цветности принтера
   function get_printer_colored($cartrige_id, $pdo) {
     // готовим запрос в БД
     $query = "
@@ -120,6 +121,7 @@ function p($obj)
     return $result[0];
   }
 
+  // Получение производителя принтера
   function get_printer_vendor($cartrige_id, $pdo) {
     // готовим запрос в БД
     $query = "
@@ -132,5 +134,76 @@ function p($obj)
     $stmt->execute([$cartrige_id]);
     $result = $stmt->fetch();
     return $result[0];
+  }
+
+  //Проверка имени файла на содержание только английских символов, цифр и ./-_
+  function check_file_uploaded_name ($filename)
+  {
+      (bool) ((preg_match("`^[-0-9A-Z_\.]+$`i",$filename)) ? true : false);
+  }
+
+
+  // Проверка что имя файла короче 225 символов
+  function check_file_uploaded_length ($filename)
+  {
+      return (bool) ((mb_strlen($filename,"UTF-8") > 225) ? true : false);
+  }
+
+  function check_file_mistakes($f)
+  {
+    if ($f) {
+      $mistakes = [];
+      for ($i=1; $data = fgetcsv($f); $i++) {
+        if ($i>1) {
+          $j = 0; //счетчик ошибок
+          $message = "Ошибка в строке $i: ";
+          if (empty($data[1])) {
+            $message .= "не указан производитель; "; $j++;
+          }
+          if (empty($data[2])) {
+            $message .= "не указан цвет картриджа; "; $j++;
+          }
+          if (empty($data[3]) && empty($data[4])) {
+            $message .= "не указана модель и серия картриджа; "; $j++;
+          }
+          if (empty($data[5])) {
+            $message .= "не указана цена за 1 картридж; "; $j++;
+          }
+          if (!preg_match("/^[0-9]+$/", $data[5])) {
+            $message .= "неправильный формат цены за 1 картридж; "; $j++;
+          }
+          if (empty($data[6])) {
+            $message .= "не указана цена за 2 картриджа; "; $j++;
+          }
+          if (!preg_match("/^[0-9]+$/", $data[6])) {
+            $message .= "неправильный формат цены за 2 картриджа; "; $j++;
+          }
+          if (empty($data[7])) {
+            $message .= "не указана цена за 5 картриджей; "; $j++;
+          }
+          if (!preg_match("/^[0-9]+$/", $data[7])) {
+            $message .= "неправильный формат цены за 5 картриджей; "; $j++;
+          }
+          if (empty($data[8])) {
+            $message .= "не указана цена за заправку в офисе; "; $j++;
+          }
+          if (!preg_match("/^[0-9]+$/", $data[8])) {
+            $message .= "неправильный формат цены за заправку в офисе; "; $j++;
+          }
+          if (empty($data[10])) {
+            $message .= "не указана модель принтера; "; $j++;
+          }
+          if ($data[11] !== "1" && $data[11] !== "0") {
+            $message .= "не указана цветность принтера; "; $j++;
+          }
+          if ($j>0) {
+            $mistakes[] = $message;
+          }          
+        }
+      }
+      if (empty($mistakes)) {
+        return false;
+      } else return $mistakes;
+    }
   }
  ?>

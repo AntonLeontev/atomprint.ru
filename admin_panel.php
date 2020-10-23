@@ -19,10 +19,15 @@
 </head>
 <body>
 
-  <?php require_once 'assets/php/header.php'; ?>
+  <?php 
+  require_once 'assets/php/header.php'; 
+  require_once 'assets/php/admin_menu.php'; 
+  require_once 'assets/php/upload_form.php';
+  ?>
+
+  
   <table id="price-list">
     <thead>
-      <tr><a class="btn" href="add_data_to_db.php">Insert data</a></tr>
       <tr>
         <th>ID</th>
         <th>Vendor</th>

@@ -1,0 +1,34 @@
+.upload_form_wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(12,12,12,.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload_form {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.input_file {
+  padding: 200px;
+}
+
+#upload_file_btn {
+  position: relative;
+  top: -100px;
+}
+
+.hidden {
+  display: none;
+}
+
