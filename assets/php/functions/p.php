@@ -1,6 +1,6 @@
 <?php 
 // Отладочная функция
-function p($obj)
+  function p($obj)
   {
     echo 
       "<pre>",
@@ -169,29 +169,33 @@ function p($obj)
           if (empty($data[5])) {
             $message .= "не указана цена за 1 картридж; "; $j++;
           }
-          if (!preg_match("/^[0-9]+$/", $data[5])) {
+          if (!preg_match("/^[0-9]{1,5}$/", $data[5])) {
             $message .= "неправильный формат цены за 1 картридж; "; $j++;
           }
           if (empty($data[6])) {
             $message .= "не указана цена за 2 картриджа; "; $j++;
           }
-          if (!preg_match("/^[0-9]+$/", $data[6])) {
+          if (!preg_match("/^[0-9]{1,5}$/", $data[6])) {
             $message .= "неправильный формат цены за 2 картриджа; "; $j++;
           }
           if (empty($data[7])) {
             $message .= "не указана цена за 5 картриджей; "; $j++;
           }
-          if (!preg_match("/^[0-9]+$/", $data[7])) {
+          if (!preg_match("/^[0-9]{1,5}$/", $data[7])) {
             $message .= "неправильный формат цены за 5 картриджей; "; $j++;
           }
           if (empty($data[8])) {
             $message .= "не указана цена за заправку в офисе; "; $j++;
           }
-          if (!preg_match("/^[0-9]+$/", $data[8])) {
+          if (!preg_match("/^[0-9]{1,5}$/", $data[8])) {
             $message .= "неправильный формат цены за заправку в офисе; "; $j++;
           }
           if (empty($data[10])) {
             $message .= "не указана модель принтера; "; $j++;
+          }
+          if (!check_accordance_series_models($data[9], $data[10])) {
+            $message .= "количество серий принтеров не 
+            соответстует количеству моделей принтеров; "; $j++;
           }
           if ($data[11] !== "1" && $data[11] !== "0") {
             $message .= "не указана цветность принтера; "; $j++;
@@ -205,5 +209,136 @@ function p($obj)
         return false;
       } else return $mistakes;
     }
+    fclose($f);
   }
+
+  // Разбиваем по разделителю строку на разные серии принтеров и убираем пустые значения
+  function split_printer_series($printer_series)
+  {
+    $result = explode('|', $printer_series);
+    array_walk($result, 'trim_value'); 
+    if (count($result)>=1 && !empty($result[0])) {
+      delete_empty_values($result);      
+    } else $result[0] = '';
+    return $result;
+  }
+
+  // Разбиваем по разделителю модели принтеров для каждой серии 
+  function split_printer_models($printer_models)
+  {
+    $result = explode('|', $printer_models);
+    array_walk($result, 'trim_value'); 
+    delete_empty_values($result);
+    return $result;
+  }
+
+  // Объединяем серии и модели принтеров в ассоциативный массив. Если 
+  // количество разделителей для серий и моделей разное - вернет false
+  function check_accordance_series_models($series, $models)
+  {
+    $printer_series = split_printer_series($series);  
+    $printer_model = split_printer_models($models);  
+    $printers = array_combine($printer_series, $printer_model);
+    return $printers;
+  }
+
+  // Отправка данных на обновление по ИД картриджа
+  function send_post_update_data($arr)
+  {  
+    $data_arr=[
+      "cartrige_id"     => $arr[0],
+      "vendor"          => $arr[1],
+      "color"           => $arr[2],
+      "series"          => $arr[3],
+      "model"           => $arr[4],
+      "price_1_pcs"     => $arr[5],
+      "price_2_pcs"     => $arr[6],
+      "price_5_pcs"     => $arr[7],
+      "price_in_office" => $arr[8],
+      "printer_series"  => $arr[9],
+      "printer_model"   => $arr[10],
+      "colored"         => $arr[11]
+    ];
+
+    $my_curl = curl_init();
+    curl_setopt_array($my_curl, array(
+      CURLOPT_URL => 'http://atomprint.ru/assets/php/functions/update_data.php',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_POST => true,
+      CURLOPT_POSTFIELDS => http_build_query($data_arr)
+    ));
+    $response = curl_exec($my_curl);
+    curl_close($my_curl);
+
+  }
+
+  // Отправка данных на добавление в базу
+  function send_post_add_data($arr)
+  {
+    $data_arr=[
+      "vendor"          => $arr[1],
+      "color"           => $arr[2],
+      "series"          => $arr[3],
+      "model"           => $arr[4],
+      "price_1_pcs"     => $arr[5],
+      "price_2_pcs"     => $arr[6],
+      "price_5_pcs"     => $arr[7],
+      "price_in_office" => $arr[8],
+      "printer_series"  => $arr[9],
+      "printer_model"   => $arr[10],
+      "colored"         => $arr[11]
+    ];
+
+    $my_curl = curl_init();
+    curl_setopt_array($my_curl, array(
+      CURLOPT_URL => 'http://atomprint.ru/assets/php/functions/add_data.php',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_POST => true,
+      CURLOPT_POSTFIELDS => http_build_query($data_arr)
+    ));
+    $response = curl_exec($my_curl);
+    curl_close($my_curl);
+  }
+
+  // Отправка данных на удаление
+  function send_post_delete_data($arr)
+  {
+    $id = $arr[0];
+    p($id);
+    $my_curl = curl_init();
+    curl_setopt_array($my_curl, array(
+      CURLOPT_URL => 
+      "http://atomprint.ru/assets/php/functions/delete_data.php?id={$id}",
+      CURLOPT_RETURNTRANSFER => true,      
+    ));
+    $response = curl_exec($my_curl);
+    curl_close($my_curl);
+  }
+
+  // Отправить файл на скачивание клиенту
+  function file_force_download($file) {
+  // сбрасываем буфер вывода PHP, чтобы избежать переполнения памяти выделенной под скрипт
+  // если этого не сделать файл будет читаться в память полностью!
+  if (ob_get_level()) {
+    ob_end_clean();
+  }
+  // заставляем браузер показать окно сохранения файла
+  header('Content-Description: File Transfer');
+  header('Content-Type: application/octet-stream');
+  header('Content-Disposition: attachment; filename=db.csv');
+  header('Content-Transfer-Encoding: binary');
+  header('Expires: 0');
+  header('Cache-Control: must-revalidate');
+  header('Pragma: public');
+  // header('Content-Length: ' . filesize($file));
+
+  // читаем файл и отправляем его пользователю
+  while (!feof($file)) {
+    print fread($file, 1024);
+  }
+  fclose($file);
+  exit;
+}
+
+
  ?>

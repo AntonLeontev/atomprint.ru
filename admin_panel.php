@@ -45,7 +45,8 @@
   <?php 
     require_once 'assets/php/functions/connect_db.php'; 
     require_once 'assets/php/functions/p.php'; 
-    $query = "
+    $query = 
+    "
       SELECT C.cartrige_id, C.series, C.model, C.price_1_pcs, C.price_2_pcs, C.price_5_pcs, C.price_in_office, colors.image_path, colors.color_name 
       FROM cartriges AS C
       JOIN colors ON C.color_id=colors.color_id

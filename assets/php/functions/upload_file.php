@@ -1,6 +1,7 @@
 <?php 
 require_once 'p.php';
 require_once 'connect_db.php';
+require_once 'functions_db.php';
 
 echo("<br>");
 echo "<a href=\"../../../admin_panel.php\">Panel</a>";
@@ -19,7 +20,24 @@ if (!empty($_FILES) && $_FILES['file']['error'][0] == 0) {
     $f = fopen("$uploads_dir/$name", 'r');
     if ($m = check_file_mistakes($f)) {
       p($m);
-    } else echo "Ошибок в файле нет";
+
+    } else {
+      echo "Ошибок в файле нет<br>";
+      $f = fopen("$uploads_dir/$name", 'r');
+
+        for ($i=0; $data = fgetcsv($f); $i++) { 
+            if ($i>0) {
+                if (empty($data[0])) send_post_add_data($data);
+                else {
+                    if (trim($data[3]) === "-") send_post_delete_data($data);
+                    else send_post_update_data($data);
+                }
+            }
+        }
+      fclose($f);
+      unlink(realpath("$uploads_dir/$name"));
+      header("Location: /admin_panel.php?err=0");
+    }
   } else {
     // die('Передан не CSV файл');
     header("Location: /admin_panel.php?err=3");
