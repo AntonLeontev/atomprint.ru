@@ -32,7 +32,7 @@ $file_header = [
   "Модель принтера", 
   "Принтер цветной?",
 ];  
-fputcsv($temp, $file_header);
+fputcsv($temp, $file_header, ";");
 
 while ($arr = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $id = $arr['cartrige_id'];
@@ -43,7 +43,7 @@ while ($arr = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $printer_models = join(" | ", $printer_series_and_models);
   $printer_series = join(" | ", array_keys($printer_series_and_models));
 
-  $insert_data = [
+  $insertion_data = [
     $id,
     $vendor,
     $arr['color_name'],
@@ -57,13 +57,13 @@ while ($arr = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $printer_models,
     $colored
   ];
-  fputcsv($temp, $insert_data);
+  fputcsv($temp, $insertion_data);
 }
 
 fseek($temp, 0);
 
 // Возвращаем клиенту файл
 
-file_force_download($temp, $file_header);
+file_force_download($temp, 'db.csv');
 
-?>
+

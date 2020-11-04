@@ -1,10 +1,6 @@
 <?php 
   require_once 'connect_db.php';
-
-  require_once 'p.php';
-
-  
-  
+  require_once 'p.php';  
 
   // Проверяем заполнение всех необходимых значений
   if 
@@ -84,8 +80,7 @@
   (SELECT series, model FROM cartriges
   WHERE series = :cartrige_series AND model = :cartrige_model) LIMIT 1;";
   
-  //Вставка в таблицу принтеров каждого значения из массива, если этого
-  //принтера еще нет в таблице.
+  //Вставка в таблицу принтеров каждого значения из массива, если этого принтера еще нет в таблице.
   // В этом цикле вставляем значения в таблицу соответствия принтеров и картриджей
   foreach ($printers as $series => $models) {
     foreach ($models as $model) {
@@ -122,7 +117,7 @@
   }
 
   $query_cartriges = $pdo->prepare($query_cartriges);
-  echo $query_cartriges->execute
+  $query_cartriges->execute
   ([
     'color_name'      => $_POST['color'], 
     'cartrige_series' => $_POST['series'], 
@@ -135,23 +130,19 @@
   $query_cartriges->closeCursor();
 
   $query_printers = $pdo->prepare($query_printers);
-  echo $query_printers->execute
+  $query_printers->execute
   ([
     'vendor'          => $_POST['vendor'],      
   ]);
   $query_printers->closeCursor();
 
   $query_match = $pdo->prepare($query_match);
-  echo $query_match->execute
+  $query_match->execute
   ([
     'cartrige_series' => $_POST['series'], 
     'cartrige_model'  => $_POST['model'],
   ]);
-  
 
+  header("Location: /admin_panel.php?err=0");
 
-  header("Location: /admin_panel.php");
-?>
-
-<a href="/admin_panel.php">admin</a>
  

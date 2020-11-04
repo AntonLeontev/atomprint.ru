@@ -23,6 +23,7 @@
   require_once 'assets/php/header.php'; 
   require_once 'assets/php/admin_menu.php'; 
   require_once 'assets/php/upload_form.php';
+  require_once 'assets/php/functions/error_script.php';
   ?>
 
   
@@ -30,14 +31,14 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Vendor</th>
-        <th>Name</th>
-        <th>Printers</th>
-        <th>1pcs</th>
-        <th>2pcs</th>
-        <th>5pcs</th>
-        <th>office</th>
-        <th>Colored</th>
+        <th>Производитель</th>
+        <th>Картридж</th>
+        <th>Принетры</th>
+        <th>1 шт</th>
+        <th>2 шт</th>
+        <th>5 шт</th>
+        <th>В офисе</th>
+        <th>Цветной?</th>
         <th>Ch</th>
         <th>Del</th>
       </tr>
@@ -80,4 +81,5 @@
   </table>
   
 </body>
+<script src="assets/js/admin_scripts.js"></script>
 </html>

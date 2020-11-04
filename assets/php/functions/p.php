@@ -153,7 +153,7 @@
   {
     if ($f) {
       $mistakes = [];
-      for ($i=1; $data = fgetcsv($f); $i++) {
+      for ($i=1; $data = fgetcsv($f, 0, ";"); $i++) {
         if ($i>1) {
           $j = 0; //счетчик ошибок
           $message = "Ошибка в строке $i: ";
@@ -209,7 +209,6 @@
         return false;
       } else return $mistakes;
     }
-    fclose($f);
   }
 
   // Разбиваем по разделителю строку на разные серии принтеров и убираем пустые значения
@@ -262,14 +261,16 @@
 
     $my_curl = curl_init();
     curl_setopt_array($my_curl, array(
-      CURLOPT_URL => 'http://atomprint.ru/assets/php/functions/update_data.php',
+      CURLOPT_URL => "http://{$_SERVER['HTTP_HOST']}/assets/php/functions/update_data.php",
       CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_POST => true,
-      CURLOPT_POSTFIELDS => http_build_query($data_arr)
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_POSTREDIR      => 7,
+      CURLOPT_POST           => true,
+      CURLOPT_POSTFIELDS     => http_build_query($data_arr)
     ));
     $response = curl_exec($my_curl);
     curl_close($my_curl);
-
+    return $response;
   }
 
   // Отправка данных на добавление в базу
@@ -291,54 +292,52 @@
 
     $my_curl = curl_init();
     curl_setopt_array($my_curl, array(
-      CURLOPT_URL => 'http://atomprint.ru/assets/php/functions/add_data.php',
+      CURLOPT_URL => "http://{$_SERVER['HTTP_HOST']}/assets/php/functions/add_data.php",
       CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_POST => true,
-      CURLOPT_POSTFIELDS => http_build_query($data_arr)
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_POSTREDIR      => 7,      
+      CURLOPT_POST           => true,
+      CURLOPT_POSTFIELDS     => http_build_query($data_arr)
     ));
     $response = curl_exec($my_curl);
     curl_close($my_curl);
+    return $response;
   }
 
   // Отправка данных на удаление
   function send_post_delete_data($arr)
   {
     $id = $arr[0];
-    p($id);
     $my_curl = curl_init();
     curl_setopt_array($my_curl, array(
       CURLOPT_URL => 
-      "http://atomprint.ru/assets/php/functions/delete_data.php?id={$id}",
-      CURLOPT_RETURNTRANSFER => true,      
+      "http://{$_SERVER['HTTP_HOST']}/assets/php/functions/delete_data.php?id={$id}",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_FOLLOWLOCATION => true,      
     ));
     $response = curl_exec($my_curl);
     curl_close($my_curl);
+    return $response;
   }
 
   // Отправить файл на скачивание клиенту
-  function file_force_download($file) {
-  // сбрасываем буфер вывода PHP, чтобы избежать переполнения памяти выделенной под скрипт
-  // если этого не сделать файл будет читаться в память полностью!
-  if (ob_get_level()) {
-    ob_end_clean();
-  }
+  function file_force_download($file, $filename) {
   // заставляем браузер показать окно сохранения файла
   header('Content-Description: File Transfer');
   header('Content-Type: application/octet-stream');
-  header('Content-Disposition: attachment; filename=db.csv');
+  header("Content-Disposition: attachment; filename=$filename");
   header('Content-Transfer-Encoding: binary');
   header('Expires: 0');
   header('Cache-Control: must-revalidate');
   header('Pragma: public');
-  // header('Content-Length: ' . filesize($file));
 
   // читаем файл и отправляем его пользователю
   while (!feof($file)) {
-    print fread($file, 1024);
+    echo fread($file, 1024);
   }
   fclose($file);
   exit;
 }
 
 
- ?>
+
