@@ -1,6 +1,7 @@
 <?php 
   require_once 'assets/php/functions/connect_db.php';
   require_once 'assets/php/functions/p.php';
+  require_once 'assets/php/functions/functions_db.php';
 
   // Получаем список цветов картриджей
   $query = "SELECT color_name, image_path FROM colors";

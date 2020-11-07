@@ -1,12 +1,6 @@
-<!-- Авторизация
-Форма для приема файла
-Проверка файла (в каждой строке 12 значений,
-  если введен ИД картриджа, то проверяем наличие такого в базе: есть - заменяем заполненые значения, пустые пропускаем; нет - проверяем заполнение всех остальных полей(не пустые строки) 
-
-  заполнено одно из наименоаний картриджа, заполнен вендор, заполнены 4 цены)
-
-Подключение к базе данных -->
-
+<?php 
+require_once 'assets/php/functions/upload_file.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +19,6 @@
   require_once 'assets/php/upload_form.php';
   require_once 'assets/php/functions/error_script.php';
   ?>
-
   
   <table id="price-list">
     <thead>
@@ -33,7 +26,7 @@
         <th>ID</th>
         <th>Производитель</th>
         <th>Картридж</th>
-        <th>Принетры</th>
+        <th>Принтеры</th>
         <th>1 шт</th>
         <th>2 шт</th>
         <th>5 шт</th>
@@ -44,8 +37,6 @@
       </tr>
     </thead>
   <?php 
-    require_once 'assets/php/functions/connect_db.php'; 
-    require_once 'assets/php/functions/p.php'; 
     $query = 
     "
       SELECT C.cartrige_id, C.series, C.model, C.price_1_pcs, C.price_2_pcs, C.price_5_pcs, C.price_in_office, colors.image_path, colors.color_name 

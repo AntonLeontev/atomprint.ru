@@ -1,49 +1,39 @@
 <?php 
-require_once 'p.php';
-require_once 'connect_db.php';
-require_once 'functions_db.php';
+require_once 'assets/php/functions/p.php';
+require_once 'assets/php/functions/connect_db.php';
+require_once 'assets/php/functions/functions_db.php';
 
-
+// Проверяем тип файла и имя на соответствие
 if (!empty($_FILES) && $_FILES['file']['error'][0] == 0) {
   if ($_FILES['file']['type'][0] == "text/csv") {
     $filename = $_FILES['file']['tmp_name'][0].'/'.$_FILES['file']['name'][0];
 
-    $uploads_dir = "../../../files/";
+    // Если все хорошо, перемещаем файл на сервер и проверяем содержимое
+    $uploads_dir = "files";
     $tmp_name = $_FILES["file"]["tmp_name"][0];
-    // basename() может предотвратить атаку на файловую систему;
-    // может быть целесообразным дополнительно проверить имя файла
     $name = basename($_FILES["file"]["name"][0]);
     move_uploaded_file($tmp_name, "$uploads_dir/$name");
 
     $f = fopen("$uploads_dir/$name", 'r');
-    if ($m = check_file_mistakes($f)) {
-      p($m);
+    if ($mistakes = check_file_mistakes($f)) {
+      $error_header  = 'Ошибки в заполнении файла:';
+      $error_message = join("<br>", $mistakes);
+      include_once "assets/php/error.php";
     } else {
-      // Если оибок в файле нет циклично записываем данные
+      // Если ошибок в файле нет, циклично записываем данные
       $f = fopen("$uploads_dir/$name", 'r');
 
-      for ($i=0; $data = fgetcsv($f, 0, ";"); $i++) { 
-        if ($i>0) {
-          if (empty($data[0])) send_post_add_data($data);             
-          else {
-            if (trim($data[3]) === "-") send_post_delete_data($data);
-            else send_post_update_data($data);
-          }
-        }
-      }
+      if (isset($_POST['excel'])) insert_changes_from_excel($f);
+      else insert_changes($f);
+
       fclose($f);
-      unlink(realpath("$uploads_dir/$name"));
       header("Location: /admin_panel.php?err=0");
     }
+    unlink(realpath("$uploads_dir/$name"));
   } else {
     // die('Передан не CSV файл');
     header("Location: /admin_panel.php?err=3");
     exit();
   } 
-} else echo "file not open";
-  
+}
 
-
-
-
-?>
