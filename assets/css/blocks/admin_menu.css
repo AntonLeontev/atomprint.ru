@@ -1,0 +1,22 @@
+.admin_menu {
+    width: 100%;
+    background: #0e2334;
+    color: #fff;
+}
+.menu_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;    
+}
+.menu_link {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: #fff;
+    padding: 3px;
+}
+.menu_link:hover {
+    color: #FF9E21;
+}

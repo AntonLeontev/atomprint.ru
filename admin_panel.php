@@ -1,6 +1,3 @@
-<?php 
-require_once 'assets/php/functions/upload_file.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +5,7 @@ require_once 'assets/php/functions/upload_file.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel</title>
 <?php 
+  require_once 'assets/php/functions/upload_file.php';
   require_once 'assets/php/head.php';
  ?>
 </head>

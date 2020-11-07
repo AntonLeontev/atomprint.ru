@@ -57,7 +57,7 @@ while ($arr = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $printer_models,
     $colored
   ];
-  fputcsv($temp, $insertion_data);
+  fputcsv($temp, $insertion_data, ";");
 }
 
 fseek($temp, 0);

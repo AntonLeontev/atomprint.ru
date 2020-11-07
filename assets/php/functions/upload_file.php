@@ -31,7 +31,7 @@ if (!empty($_FILES) && $_FILES['file']['error'][0] == 0) {
     }
     unlink(realpath("$uploads_dir/$name"));
   } else {
-    // die('Передан не CSV файл');
+    // Передан не CSV файл
     header("Location: /admin_panel.php?err=3");
     exit();
   } 
