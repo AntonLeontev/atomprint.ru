@@ -1,4 +1,4 @@
-$(document).ready(function() {
+// $(document).ready(function() {
 
   //Анимация карты
   $('.map').click(function() {
@@ -40,10 +40,10 @@ $(document).ready(function() {
 
 
   //Подстановка Тайтла страницы в инпуты форм
-  let title = document.title;
-  let footerPageTitleInput = document.getElementById("footer_page_title_input"),
-    smallFormTitleInput = document.getElementById("small_form_page_title_input"),
-    firstscreenFormTitleInput = document.getElementById("firstscreen_form_page_title_input");
+  title = document.title;
+  footerPageTitleInput = document.getElementById("footer_page_title_input"),
+  smallFormTitleInput = document.getElementById("small_form_page_title_input"),
+  firstscreenFormTitleInput = document.getElementById("firstscreen_form_page_title_input");
   if (footerPageTitleInput != null) {
     footerPageTitleInput.value = title;
   }
@@ -55,20 +55,20 @@ $(document).ready(function() {
   }
 
   /* Появление ответов на ЧаВо */
-  let faqConteiner = document.querySelector(".faq_conteiner");
+  faqConteiner = document.querySelector(".faq_conteiner");
   if (faqConteiner != null) {
     faqConteiner.addEventListener('click', function(event) {
-      let id = event.target.dataset.toggleId;
+      id = event.target.dataset.toggleId;
       if (!id) return;
-      let elem = document.getElementById(id);
+      elem = document.getElementById(id);
       elem.classList.toggle("active");
     });
   };
-})
+// })
 
 
 // Измениние цвета активной кнопки в printers_menu
-let vendors = {
+vendors = {
   "hp"        : 'item_hp',
   "canon"     : 'item_canon',
   "samsung"   : 'item_samsung',
@@ -80,13 +80,13 @@ let vendors = {
   "konika"    : 'item_konika'
 };
 
-let title = document.title;
+// let title = document.title;
 
-for (let i in vendors) {
+for (i in vendors) {
 
   if ( title.toLowerCase().includes(i) ) {
-    let selector = '.' + vendors[i];
-    let el = document.querySelector(selector);
+    selector = '.' + vendors[i];
+    el = document.querySelector(selector);
     el.classList.add('active');
   }
 }

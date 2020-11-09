@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel</title>
-<?php 
+<?php
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
   require_once 'assets/php/functions/upload_file.php';
-  require_once 'assets/php/head.php';
+  require_once 'assets/php/blocks/head.php';
  ?>
 </head>
 <body>
 
   <?php 
-  require_once 'assets/php/header.php'; 
-  require_once 'assets/php/admin_menu.php'; 
-  require_once 'assets/php/upload_form.php';
+  require_once 'assets/php/blocks/header.php'; 
+  require_once 'assets/php/blocks/admin_menu.php'; 
+  require_once 'assets/php/blocks/upload_form.php';
   require_once 'assets/php/functions/error_script.php';
   ?>
   
@@ -40,7 +44,7 @@
       SELECT C.cartrige_id, C.series, C.model, C.price_1_pcs, C.price_2_pcs, C.price_5_pcs, C.price_in_office, colors.image_path, colors.color_name 
       FROM cartriges AS C
       JOIN colors ON C.color_id=colors.color_id
-      ORDER BY cartrige_id DESC;
+      ORDER BY cartrige_id;
     ";
     $stmt = $pdo->query($query);
     while ($arr = $stmt->fetch(PDO::FETCH_ASSOC)) {

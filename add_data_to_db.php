@@ -1,5 +1,6 @@
  <?php 
-  require_once 'assets/php/functions/connect_db.php'; 
+  require_once 'assets/php/functions/connect_db.php';
+   
   $query = "SELECT color_name FROM colors";
   $colors = $pdo->query($query);
   $colors = $colors->fetchAll(PDO::FETCH_ASSOC);
@@ -15,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add new cartrige</title>
   <?php 
-    require_once 'assets/php/head.php';
+    require_once 'assets/php/blocks/head.php';
   ?>
 </head>
 <body>

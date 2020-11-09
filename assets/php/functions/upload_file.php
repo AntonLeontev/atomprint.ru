@@ -5,7 +5,9 @@ require_once 'assets/php/functions/functions_db.php';
 
 // Проверяем тип файла и имя на соответствие
 if (!empty($_FILES) && $_FILES['file']['error'][0] == 0) {
-  if ($_FILES['file']['type'][0] == "text/csv") {
+  if ($_FILES['file']['type'][0] == "text/csv" || 
+      $_FILES['file']['type'][0] == "application / vnd.ms-excel" || 
+      $_FILES['file']['type'][0] == "application/vnd.ms-excel") {
     $filename = $_FILES['file']['tmp_name'][0].'/'.$_FILES['file']['name'][0];
 
     // Если все хорошо, перемещаем файл на сервер и проверяем содержимое
@@ -27,13 +29,17 @@ if (!empty($_FILES) && $_FILES['file']['error'][0] == 0) {
       else insert_changes($f);
 
       fclose($f);
-      header("Location: /admin_panel.php?err=0");
+      // Выводим сообщение
+      $error_header  = 'Ошибок нет!';
+      $error_message = "Все выполнено";
+      include_once "assets/php/error.php";
     }
     unlink(realpath("$uploads_dir/$name"));
   } else {
     // Передан не CSV файл
-    header("Location: /admin_panel.php?err=3");
-    exit();
+    $error_header  = 'Ошибка!';
+    $error_message = "Передан не CSV файл!";
+    include_once "assets/php/error.php";
   } 
 }
 

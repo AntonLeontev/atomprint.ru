@@ -1,5 +1,5 @@
 <?php
-include_once 'assets/php/cookies.php';
+include_once 'assets/php/blocks/cookies.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -9,13 +9,13 @@ include_once 'assets/php/cookies.php';
 	<meta name="description" content="Атомпринт - сервисная компания по ремонту принтеров и любой оргтехники. Занимаемся заправкой картриджей, обслуживанием и чисткой МФУ. Наша задача - сделать так, чтобы у вас в офисе все хорошо и правильно печатало">
 	<meta name="keywords" content="заправка картриджей,ремонт принтеров,ремонт мфу">
 	<?php
-		include_once __DIR__ . '/assets/php/head.php'
+		include_once __DIR__ . '/assets/php/blocks/head.php'
 	 ?>
 </head>
 <body>
 	<?php
-		include_once __DIR__ . '/assets/php/header.php';
-		include_once 'assets/php/printers_menu.php';
+		include_once __DIR__ . '/assets/php/blocks/header.php';
+		include_once 'assets/php/blocks/printers_menu.php';
 	 ?>
 
 	<div class="content">
@@ -42,16 +42,16 @@ include_once 'assets/php/cookies.php';
 			</div>
 		</div>
 		<?php
-						include_once __DIR__ . '/assets/php/faq_refill.php';
-            include_once __DIR__ . '/assets/php/callback.php';
-            include_once __DIR__ . '/assets/php/feedback.php';
-            include_once __DIR__ . '/assets/php/slider.php';
-            include_once __DIR__ . '/assets/php/gallery.php';
-            include_once __DIR__ . '/assets/php/footer.php';
-            include_once __DIR__ . '/assets/php/footer.php';
-						include_once __DIR__ . '/assets/php/map-pop-up.php';
+			include_once __DIR__ . '/assets/php/blocks/faq_refill.php';
+            include_once __DIR__ . '/assets/php/blocks/callback.php';
+            include_once __DIR__ . '/assets/php/blocks/feedback.php';
+            include_once __DIR__ . '/assets/php/blocks/slider.php';
+            include_once __DIR__ . '/assets/php/blocks/gallery.php';
+            include_once __DIR__ . '/assets/php/blocks/footer.php';
+            include_once __DIR__ . '/assets/php/blocks/footer.php';
+						include_once __DIR__ . '/assets/php/blocks/map-pop-up.php';
             if (!isset($_COOKIE["accept_notice"])) {
-		 		include_once 'assets/php/notice.php';
+		 		include_once 'assets/php/blocks/notice.php';
   			}
         ?>
 

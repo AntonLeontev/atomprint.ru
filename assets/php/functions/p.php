@@ -39,6 +39,13 @@ function pGet($obj, $leftSp = '')
   return $buf;
 }
 
+// Мультибайтное ucfirst
+function mb_ucfirst($string) {
+      $first = mb_substr($string, 0, 1);
+      $else = mb_substr($string, 1);
+      return mb_strtoupper($first).mb_strtolower($else);
+    }
+
 // Обрезка пробелов во всех стороках массива
 function trim_value(&$value)
 {
@@ -286,7 +293,7 @@ function insert_changes_from_excel($file)
 {
   for ($i = 0; $data = fgetcsv($file, 0, ";"); $i++) { 
     if ($i > 0) {
-      mb_convert_encoding($data, "UTF-8", "CP1251");
+      @mb_convert_encoding($data, "UTF-8", "CP1251");
       send_data($data);    
     }
   }

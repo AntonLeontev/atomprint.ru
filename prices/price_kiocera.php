@@ -1,5 +1,5 @@
 <?php
-include_once '../assets/php/cookies.php';
+include_once '../assets/php/blocks/cookies.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -9,14 +9,14 @@ include_once '../assets/php/cookies.php';
   <meta name="description" content="Профессиональная заправка картриджей Kyocera в Екатеринбурге. Цены на заправку картриджей Kyocera. Заправка картриджей Kiocera с выездом.">
   <meta name="keywords" content="атомпринт,заправка картриджей,Kyocera">
   <?php
-    include_once '../assets/php/head.php'
+    include_once '../assets/php/blocks/head.php'
    ?>
 
 </head>
 <body>
   <?php
-    include_once '../assets/php/header.php';
-    include_once '../assets/php/printers_menu.php';
+    include_once '../assets/php/blocks/header.php';
+    include_once '../assets/php/blocks/printers_menu.php';
   ?>
   <h1 class="h1_price">Стоимость заправки картриджей Kyocera</h1>
   <div id="price">                       
@@ -1025,10 +1025,10 @@ include_once '../assets/php/cookies.php';
 
 
   <?php
-    include_once '../assets/php/footer.php';
-    include_once '../assets/php/map-pop-up.php';
+    include_once '../assets/php/blocks/footer.php';
+    include_once '../assets/php/blocks/map-pop-up.php';
     if (!isset($_COOKIE["accept_notice"])) {
-      include_once '../assets/php/notice.php';
+      include_once '../assets/php/blocks/notice.php';
      }
   ?>
 

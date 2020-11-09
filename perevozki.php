@@ -120,8 +120,8 @@
 
 
   <?php 
-    include_once __DIR__ . '/assets/php/footer.php';
-    include_once __DIR__ . '/assets/php/map-pop-up.php';
+    include_once __DIR__ . '/assets/php/blocks/footer.php';
+    include_once __DIR__ . '/assets/php/blocks/map-pop-up.php';
   ?>
 
      
