@@ -15,7 +15,7 @@ include_once 'assets/php/cookies.php';
 <body>
 	<?php
 		include_once __DIR__ . '/assets/php/header.php';
-		include_once 'assets/php/alert_top.php';
+		include_once 'assets/php/printers_menu.php';
 	 ?>
 
 	<div class="content">
@@ -57,3 +57,5 @@ include_once 'assets/php/cookies.php';
 
 	</div>
 </body>
+<script type="text/javascript" src="/assets/js/scripts_body.js"></script>
+</html>

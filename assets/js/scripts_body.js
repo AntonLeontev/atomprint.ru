@@ -67,6 +67,30 @@ $(document).ready(function() {
 })
 
 
+// Измениние цвета активной кнопки в printers_menu
+let vendors = {
+  "hp"        : 'item_hp',
+  "canon"     : 'item_canon',
+  "samsung"   : 'item_samsung',
+  "xerox"     : 'item_xerox',
+  "kiocera"   : 'item_kiocera',
+  "brother"   : 'item_brother',
+  "panasonic" : 'item_panasonic',
+  "oki"       : 'item_oki',
+  "konika"    : 'item_konika'
+};
+
+let title = document.title;
+
+for (let i in vendors) {
+
+  if ( title.toLowerCase().includes(i) ) {
+    let selector = '.' + vendors[i];
+    let el = document.querySelector(selector);
+    el.classList.add('active');
+  }
+}
+
 
 
 /* Маска ввода телефона */

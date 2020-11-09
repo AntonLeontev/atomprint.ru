@@ -1,6 +1,6 @@
 <div class="faq_wrap">
   <article class="faq_conteiner">
-    <h3>Частые вопросы</h3>
+    <h3 class="faq_title">Частые вопросы</h3>
     <section class="faq_question">
       <button data-toggle-id="faq_question_answer_1" class="faq_question_title">Вы заправляете картриджи на месте?</button>
       <div id="faq_question_answer_1" class="faq_question_answer">
