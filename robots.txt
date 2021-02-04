@@ -6,5 +6,6 @@ Disallow: /test.php
 Disallow: /admin_panel.php
 Disallow: /add_data_to_db.php
 Disallow: /change_data.php
+Disallow: /db_dump.txt
 Sitemap: http://www.xn--80aqlfchhmg.xn--p1ai/sitemap.xml
 Host: www.xn--80aqlfchhmg.xn--p1ai

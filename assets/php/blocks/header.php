@@ -16,7 +16,7 @@
 				<p class="normal">пн-пт 9:00 - 18:00</p>
 			</div>
 			<address class="adress">
-				<p class="normal">Белинского&nbsp;56,&nbsp;оф.&nbsp;409</p>
+				<p class="normal">Белинского&nbsp;56,&nbsp;оф.&nbsp;300</p>
 				<p class="normal">Автоматики&nbsp;1,&nbsp;оф.&nbsp;007</p>
 				<a class="map" onclick="ym('53149000','reachGoal', 'karta');" href="#">Посмотреть на карте</a>
 			</address>

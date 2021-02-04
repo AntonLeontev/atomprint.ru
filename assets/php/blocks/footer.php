@@ -18,7 +18,10 @@
 		<div class="footer_info1">
 					<div class="zphone"><a href="tel:+73433009233" class="zphone">+7 343 3009233</a></div>
 					<p><a href="mailto:atomprint@yandex.ru" class="footer_btn">atomprint@yandex.ru</a></p>
-					<p class="footer_btn" onclick="yaCounter54408460.reachGoal('view_map'); return true;" id="footer_adress">Екатеринбург, пер. Автоматики, д.&nbsp;1, оф.&nbsp;007</p>
+					<p class="footer_btn" onclick="yaCounter54408460.reachGoal('view_map'); return true;" id="footer_adress">
+						Екатеринбург, пер. Автоматики, д.&nbsp;1, оф.&nbsp;007<br>
+						пр. Белинского, д.&nbsp;56, оф.&nbsp;300
+					</p>
 		</div>
 		<nav class="links">
 					<p><a href="/index.php">Главная</a></p>
