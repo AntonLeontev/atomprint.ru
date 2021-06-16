@@ -6,16 +6,16 @@
  */
 class FormDataSender
 {
-    private $phone;
-    private $name;
-    private $form;
-    private $title;
+    private $phone; //телефон из формы
+    private $name;  //имя из формы
+    private $form;  //название формы
+    private $title; // заголовок страницы, с которой отправили форму
     private $telegram_token   = "961313657:AAGAMoIvveEHv3GiEC_Sed4uXByUPvLZXiA";
     private $telegram_chat_id = "-322308753";
     private $admin_email      = "aner-anton@ya.ru";
     private $client_email     = "atomprint@yandex.ru";
     private $bitrix_url       = 
-    "https://b24-kc1wpe.bitrix24.ru/rest/1/ly5bjer0c86qo39q/crm.lead.add.json";
+    "https://b24-kc1wpe.bitrix24.ru/rest/1/nb0pdgtxml39hy2t/crm.lead.add.json";
 
 
     public function __construct(array $data)
@@ -124,12 +124,12 @@ class FormDataSender
         return $this->phone;
     }
 
-    protected function preparePhone(string $phone)
+    protected function preparePhone($phone)
     {
         return htmlspecialchars(strip_tags($phone));
     }
 
-    protected function prepareName(string $name)
+    protected function prepareName($name)
     {
         $name = explode(" ", $name);
         $name = array_reduce($name, 
@@ -143,7 +143,7 @@ class FormDataSender
         return htmlspecialchars(strip_tags(trim($name)));
     }  
 
-    protected function mb_ucfirst(string $str)
+    protected function mb_ucfirst($str)
     {
         $first = mb_substr($str, 0, 1);
         $tail = mb_substr($str, 1);
