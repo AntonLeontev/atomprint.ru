@@ -121,3 +121,14 @@ $(function() {
 });
 
 /*  Конец маски ввода телефона */
+
+// Плагин venobox
+$('.venobox').venobox({
+    arrowsColor: "#FF9E21",
+    border     : '0',                             // default: '0'
+    bgcolor    : '#fff',                          // default: '#fff'
+    titleattr  : 'data-title',                       // default: 'title'
+    numeratio  : true,                               // default: false
+    infinigall : true,                               // default: false
+    share      : [] // default: []
+});

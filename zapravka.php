@@ -6,7 +6,7 @@ include_once 'assets/php/blocks/cookies.php';
 <head>
 	<meta charset="UTF-8">
 	<title>Заправка картриджей в Екатеринбурге | Атомпринт</title>
-	<meta name="description" content="Атомпринт - сервисная компания по ремонту принтеров и любой оргтехники. Занимаемся заправкой картриджей, обслуживанием и чисткой МФУ. Наша задача - сделать так, чтобы у вас в офисе все хорошо и правильно печатало">
+	<meta name="description" content="Сервис по заправке картриджей для лазерных принтеров в Екатеринбурге. Заправляем бренды HP, Kyocera, Xerox, Brother, Samsung, Canon и др.">
 	<meta name="keywords" content="заправка картриджей,ремонт принтеров,ремонт мфу">
 	<?php
 		include_once __DIR__ . '/assets/php/blocks/head.php'

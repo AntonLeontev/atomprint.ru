@@ -6,7 +6,7 @@ include_once 'assets/php/blocks/cookies.php';
 <head>
 	<meta charset="UTF-8">
 	<title>Купить картриджи для принтеров | Атомпринт</title>
-	<meta name="description" content="Атомпринт - сервисная компания по ремонту принтеров и любой оргтехники. Занимаемся заправкой картриджей, обслуживанием и чисткой МФУ. Наша задача - сделать так, чтобы у вас в офисе все хорошо и правильно печатало">
+	<meta name="description" content="Купить картриджи для принтеров HP, Canon, Xerox, Brother, Kyocera, Samsung">
 	<meta name="keywords" content="атомпринт,доставка картриджей,купить картридж для принтера,купить картридж для МФУ">
 	<?php
 		include_once 'assets/php/blocks/head.php'

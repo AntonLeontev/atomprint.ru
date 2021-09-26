@@ -6,7 +6,7 @@ include_once 'assets/php/blocks/cookies.php';
 <head>
 	<meta charset="UTF-8">
 	<title>Ремонт и обслуживание принтеров в Екатеринбурге | Атомпринт</title>
-	<meta name="description" content="Атомпринт - сервисная компания по ремонту принтеров и любой оргтехники. Занимаемся заправкой картриджей, обслуживанием и чисткой МФУ. Наша задача - сделать так, чтобы у вас в офисе все хорошо и правильно печатало">
+	<meta name="description" content="Ремонт принтеров и МФУ. Чистка и обслуживание печатной техники в Екатеринбурге">
 	<meta name="keywords" content="заправка картриджей,ремонт принтеров,ремонт мфу">
 	<?php
         include_once 'assets/php/blocks/head.php'
@@ -15,7 +15,7 @@ include_once 'assets/php/blocks/cookies.php';
 </head>
 <body>
 	<?php
-        include_once 'assets/php/blocks/header.php';
+    include_once 'assets/php/blocks/header.php';
 		include_once 'assets/php/blocks/printers_menu.php';			
      ?>
 	<div class="content">
