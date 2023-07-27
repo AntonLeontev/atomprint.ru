@@ -71,25 +71,27 @@
 
 			//для отправки в битрикс
 			// формируем URL в переменной $queryUrl
-			$queryUrl = 'https://b24-kc1wpe.bitrix24.ru/rest/1/ly5bjer0c86qo39q/crm.lead.add.json';
+			// $queryUrl = 'https://b24-kc1wpe.bitrix24.ru/rest/1/ly5bjer0c86qo39q/crm.lead.add.json';
+			$queryUrl = 'https://b24-kc1wpe.bitrix24.ru/rest/1/nb0pdgtxml39hy2t/crm.lead.add.json';
 
 			// формируем параметры для создания лида в переменной $queryData
 			$queryData = http_build_query(array(
-			  'fields' => array(
+			  'fields' => [
 			    'TITLE' => "Заявка с сайта",
 			    'NAME' => $name,
-			    'COMMENTS' => "Заявка!\n\r${txt}",
-			  	'PHONE' => Array(
-				    "n0" => Array(
+			    'COMMENTS' => "Заявка!\n\r{$txt}",
+			  	'PHONE' => [
+				    "n0" => [
 				        "VALUE" => $phone,
 				        "VALUE_TYPE" => "WORK",
-				    ),
-					),
-					"SOURCE_ID" => "Сайт",
-					'WEB' => $pageTitle,
+					],
+			  	],
+				"SOURCE_ID" => "Сайт",
+				'WEB' => $pageTitle,
+				'ASSIGNED_BY_ID' => 33,
 
 
-			  ),
+				],
 			  'params' => array("REGISTER_SONET_EVENT" => "Y")
 			));
 

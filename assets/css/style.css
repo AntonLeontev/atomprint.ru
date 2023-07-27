@@ -11,6 +11,9 @@
 @import url("blocks/faq.css");
 @import url("blocks/alert_top.css");
 @import url("blocks/printers_menu.css");
+@import url("blocks/upload_form.css");
+@import url("blocks/error.css");
+@import url("blocks/admin_menu.css");
 
 @import url("fonts.css");
 @import url("politika.css");
@@ -18,3 +21,4 @@
 @import url("err404.css");
 @import url("main.css");
 @import url("prices.css");
+@import url("add_data_to_db.css");

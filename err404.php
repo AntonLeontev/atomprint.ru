@@ -4,12 +4,12 @@
 	<meta charset="UTF-8">
 	<title>Страница не найдена</title>
 	<?php
-		include_once 'assets/php/head.php'
+		include_once 'assets/php/blocks/head.php'
 	 ?>
 </head>
 <body>
 <?php
-	include_once 'assets/php/header.php'
+	include_once 'assets/php/blocks/header.php'
 ?>
 <div class="background404">
 	<div class="container404">

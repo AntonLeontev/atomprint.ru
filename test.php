@@ -1,17 +1,45 @@
+<?php
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<title>Тестовая страница oki | Атомпринт</title>
-	<meta name="description" content="Атомпринт - сервисная компания по ремонту принтеров и любой оргтехники. Занимаемся заправкой картриджей, обслуживанием и чисткой МФУ. Наша задача - сделать так, чтобы у вас в офисе все хорошо и правильно печатало">
-	<meta name="keywords" content="заправка картриджей,ремонт принтеров,ремонт мфу">
-  <?php include_once 'assets/php/head.php'; ?>
-</head>
-<body>
-  <?php include_once 'assets/php/header.php'; ?>
+ini_set('display_errors', 1);
+		ini_set('display_startup_errors', 1);
+		error_reporting(1);
 
 
+// формируем URL в переменной $queryUrl
+$queryUrl = 'https://b24-kc1wpe.bitrix24.ru/rest/1/ly5bjer0c86qo39q/user.get.json';
 
-	
-</body>
+// формируем параметры для создания лида в переменной $queryData
+$queryData = http_build_query(array(
+	'fields' => [
+	'TITLE' => "Заявка с сайта",
+	'NAME' => $name,
+	'COMMENTS' => "Заявка!\n\r{$txt}",
+	'PHONE' => [
+		"n0" => [
+			"VALUE" => $phone,
+			"VALUE_TYPE" => "WORK",
+		],
+	],
+	"SOURCE_ID" => "Сайт",
+	'WEB' => $pageTitle,
+
+
+	],
+	'params' => array("REGISTER_SONET_EVENT" => "Y")
+));
+
+$curl = curl_init();
+curl_setopt_array($curl, array(
+	CURLOPT_SSL_VERIFYPEER => 0,
+	CURLOPT_POST => false,
+	CURLOPT_HEADER => 0,
+	CURLOPT_RETURNTRANSFER => 1,
+	CURLOPT_URL => $queryUrl,
+	// CURLOPT_POSTFIELDS => $queryData,
+));
+$result = curl_exec($curl);
+curl_close($curl);
+// $result = json_decode($result);
+// if (array_key_exists('error', $result)) echo "Ошибка при сохранении лида: ".$result['error_description']."<br/>";
+
+echo($result);
